@@ -156,7 +156,7 @@
             }
 
             /* 💥 Main Table Fix: Stack rows vertically (Card View) 💥 */
-            .swap-table, .swap-table tbody, .swap-table tr, .swap-table td {
+            .swap-table, .swap-table tbody, .swap-table tr {
                 display: block; 
                 width: 100%;
             }
@@ -168,17 +168,17 @@
             .swap-table tr {
                 margin-bottom: 20px; /* Increased spacing between cards */
                 border: 1px solid #adb5bd;
-                padding: 5px 0; 
+                padding: 10px; /* Adjust padding for the entire card */
                 border-radius: 5px;
             }
 
             .swap-table td {
-                text-align: right;
-                padding-left: 65%; /* **Increased space** for the label on the left (Adjusted to 65%) */
+                display: block; /* Make each cell a block element */
+                width: 100%;
+                text-align: left; /* Align text to the left */
+                padding: 8px 0; /* Vertical padding */
                 position: relative;
-                border: none; 
-                padding-top: 8px; 
-                padding-bottom: 8px; 
+                border: none; /* Remove individual cell borders */
             }
             
             /* Add a divider between cells within the stacked row (for visual separation) */
@@ -189,17 +189,14 @@
             /* Create the column header label using data-label attribute */
             .swap-table td::before {
                 content: attr(data-label);
-                position: absolute;
-                left: 10px;
-                width: 60%; /* **Adjusted label width** to 60% */
-                padding-right: 10px;
-                white-space: normal; /* **Crucial:** Allows the long label to wrap */
-                text-align: left;
+                display: block; /* Make the label display on its own line */
                 font-weight: bold;
                 color: #007bff;
+                margin-bottom: 5px; /* Space between label and content */
+                text-align: left; /* Align label to the left */
             }
             
-            /* **Crucial:** Ensure the content text also wraps properly (fixes overlap) */
+            /* Ensure the content text also wraps properly */
             .swap-table tr td {
                 white-space: normal;
             }
@@ -279,7 +276,7 @@
             சைகை (<span class="keyword-red">Cue</span>) மற்றும் பரிசு (<span class="keyword-purple">Reward</span>) ஆகியவற்றை நிலைநிறுத்தி, நடுவில் உள்ள <span class="keyword-blue">வழக்கத்தை (Routine)</span> மட்டும் ஆரோக்கியமானதாக மாற்றியமைக்க வேண்டும்.
         </p>
         <p>
-            பழைய சுழற்சி: மன அழுத்தம் --> சாக்லேட் சாப்பிடுவது --> தற்காலிக மகிழ்ச்சி/நிவாரணம்.
+            பழைய சுழற்சி: மன அழுத்தம் --> சாக்லேட் சாப்பிடுவது $\rightarrow$ தற்காலிக மகிழ்ச்சி/நிவாரணம்.
         </p>
         <p>
             புதிய சுழற்சி: மன அழுத்தம் --> <span class="keyword-blue">ஸ்மார்ட் ஸ்வாப்</span> (உதாரணமாக, நடப்பது) $\rightarrow$ தற்காலிக மகிழ்ச்சி/நிவாரணம் + <span class="keyword-green">ஆரோக்கிய உணர்வு</span>.
