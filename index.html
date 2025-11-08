@@ -155,7 +155,7 @@
                 height: 180px;
             }
 
-            /* Main Table Fix: Stack rows vertically */
+            /* 💥 Main Table Fix: Stack rows vertically (Card View) 💥 */
             .swap-table, .swap-table tbody, .swap-table tr, .swap-table td {
                 display: block; 
                 width: 100%;
@@ -166,9 +166,10 @@
             }
 
             .swap-table tr {
-                margin-bottom: 15px;
+                margin-bottom: 20px; /* Increased spacing between cards */
                 border: 1px solid #adb5bd;
-                padding: 10px 0; 
+                padding: 5px 0; 
+                border-radius: 5px;
             }
 
             .swap-table td {
@@ -180,17 +181,9 @@
                 padding-bottom: 8px; 
             }
             
-            /* Add a divider between cells within the stacked row */
+            /* Add a divider between cells within the stacked row (for visual separation) */
             .swap-table tr td:not(:last-child) {
                 border-bottom: 1px dashed #ced4da;
-            }
-
-            /* Apply a solid border to the last cell of the row to separate records (cards) */
-            .swap-table tr td:last-child {
-                border-bottom: none; /* Removed the line below the card */
-            }
-            .swap-table tr:last-child {
-                 margin-bottom: 0; /* No margin after the last row */
             }
 
             /* Create the column header label using data-label attribute */
@@ -200,13 +193,13 @@
                 left: 10px;
                 width: 55%; /* Adjusted label width */
                 padding-right: 10px;
-                white-space: normal; /* Allow the content text to wrap */
+                white-space: normal; /* **Crucial:** Allows the long label to wrap */
                 text-align: left;
                 font-weight: bold;
                 color: #007bff;
             }
             
-            /* Ensure the text content wraps properly (important for the Smart Swap Solution) */
+            /* **Crucial:** Ensure the content text also wraps properly (fixes overlap) */
             .swap-table tr td {
                 white-space: normal;
             }
