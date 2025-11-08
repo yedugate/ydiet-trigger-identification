@@ -86,6 +86,8 @@
         .keyword-green { color: #28a745; font-weight: bold; } /* Solutions/Positive outcomes */
         .keyword-red { color: #dc3545; font-weight: bold; } /* Triggers/Challenges */
         .keyword-purple { color: #6f42c1; font-weight: bold; } /* Scientific terms */
+        .keyword-white { color: white; font-weight: bold; } /* White for contrast on blue background */
+
 
         /* Table Style (Smart Swap Solution) */
         .swap-table {
@@ -139,7 +141,7 @@
             border-radius: 5px;
         }
         
-        /* Mobile Responsiveness (Max-width 600px) */
+        /* --- Mobile Responsiveness (Max-width 600px) --- */
         @media (max-width: 600px) {
             .container {
                 padding: 15px;
@@ -153,42 +155,51 @@
                 height: 180px;
             }
 
+            /* Main Table Fix: Stack rows vertically */
             .swap-table, .swap-table tbody, .swap-table tr, .swap-table td {
                 display: block; 
                 width: 100%;
             }
 
             .swap-table thead {
-                display: none; 
+                display: none; /* Hide desktop headers */
             }
 
             .swap-table tr {
                 margin-bottom: 15px;
                 border: 1px solid #adb5bd;
+                padding: 10px 0; /* Add vertical padding to the row */
             }
 
             .swap-table td {
                 text-align: right;
-                padding-left: 55%;
+                padding-left: 55%; /* Space for the data label */
                 position: relative;
+                border: none; /* Remove individual cell borders */
+                padding-top: 8px; /* Reduce vertical padding */
+                padding-bottom: 8px; /* Reduce vertical padding */
+            }
+            
+            /* Apply border to the last cell of the row to separate records */
+            .swap-table tr td:last-child {
+                border-bottom: 1px solid #dee2e6;
             }
 
+            /* Create the column header label using data-label attribute */
             .swap-table td::before {
-                /* Creates the column header label */
                 content: attr(data-label);
                 position: absolute;
                 left: 10px;
                 width: 50%;
                 padding-right: 10px;
-                white-space: nowrap;
+                white-space: normal; /* Allow text to wrap */
+                text-align: left;
                 font-weight: bold;
                 color: #007bff;
             }
             
-            /* Setting up the column labels for mobile table */
-            .swap-table tr td:nth-child(1)::before { content: 'தூண்டுதல் (Trigger)'; }
-            .swap-table tr td:nth-child(2)::before { content: 'ஆரோக்கியமற்ற வழக்கம்'; }
-            .swap-table tr td:nth-child(3)::before { content: 'ஸ்மார்ட் ஸ்வாப் தீர்வு'; }
+            /* Setting up the column labels for mobile table (using data-label in HTML) */
+            /* No need to set the content here since it is already set in the HTML td element */
         }
     </style>
 </head>
@@ -210,9 +221,9 @@
             மனிதர்களின் உணவுப் பழக்கம் என்பது பெரும்பாலும் <span class="keyword-purple">பழக்கச் சுழற்சியைப் (Habit Loop)</span> பின்பற்றுகிறது. இச்சுழற்சியில் பின்வரும் மூன்று இன்றியமையாத கூறுகள் அடங்கியுள்ளன:
         </p>
         <ul>
-            <li>  சைகை (<span class="keyword-red">Cue/Trigger</span>):   ஒரு பழக்கத்தைத் தூண்டும் ஒரு வெளிப்புற அல்லது அகத் தூண்டுதல் (உதாரணமாக, ஒரு குறிப்பிட்ட நேரம், இடம், உணர்வு அல்லது பிற நபர்கள்).</li>
-            <li>  வழக்கம் (Routine):   சைகைக்குப் பிறகு மேற்கொள்ளப்படும் செயல்பாடு (உதாரணமாக, இனிப்புகளை உட்கொள்வது).</li>
-            <li>  பரிசு (<span class="keyword-purple">Reward</span>):   வழக்கத்தின் மூலம் விளைகின்ற திருப்தி அல்லது தற்காலிக மகிழ்ச்சி (உதாரணமாக, மன அழுத்தத்திலிருந்து தற்காலிக நிவாரணம்).</li>
+            <li> சைகை (<span class="keyword-red">Cue/Trigger</span>):   ஒரு பழக்கத்தைத் தூண்டும் ஒரு வெளிப்புற அல்லது அகத் தூண்டுதல் (உதாரணமாக, ஒரு குறிப்பிட்ட நேரம், இடம், உணர்வு அல்லது பிற நபர்கள்).</li>
+            <li> வழக்கம் (Routine):   சைகைக்குப் பிறகு மேற்கொள்ளப்படும் செயல்பாடு (உதாரணமாக, இனிப்புகளை உட்கொள்வது).</li>
+            <li> பரிசு (<span class="keyword-purple">Reward</span>):   வழக்கத்தின் மூலம் விளைகின்ற திருப்தி அல்லது தற்காலிக மகிழ்ச்சி (உதாரணமாக, மன அழுத்தத்திலிருந்து தற்காலிக நிவாரணம்).</li>
         </ul>
         <p>
             ஆரோக்கியமற்ற உணவுப் பழக்கவழக்கங்களைப் பொறுத்தவரை, இந்தச் சைகை பெரும்பாலும் <span class="keyword-red">உணர்ச்சி சார்ந்ததாகவே (Emotional Triggers)</span> அமைகிறது. உதாரணமாக:
@@ -256,17 +267,17 @@
             </thead>
             <tbody>
                 <tr>
-                    <td data-label="தூண்டுதல்">மன அழுத்தம்</td>
+                    <td data-label="தூண்டுதல் (Trigger)">மன அழுத்தம்</td>
                     <td data-label="ஆரோக்கியமற்ற வழக்கம்">ஐஸ்கிரீம் அல்லது இனிப்பு சாப்பிடுவது</td>
                     <td data-label="ஸ்மார்ட் ஸ்வாப் தீர்வு"><span class="keyword-blue">ஆழமான சுவாசம் (Deep Breathing)</span> அல்லது சில நிமிடங்கள் நடப்பது. பசி குறைந்தால், அதற்குப் பதிலாக <span class="keyword-green">உலர் பழங்களை (Dry Fruits)</span> உட்கொள்ளுதல்.</td>
                 </tr>
                 <tr>
-                    <td data-label="தூண்டுதல்">சலிப்பு</td>
+                    <td data-label="தூண்டுதல் (Trigger)">சலிப்பு</td>
                     <td data-label="ஆரோக்கியமற்ற வழக்கம்">சிப்ஸ் அல்லது பிஸ்கட் சாப்பிடுவது</td>
                     <td data-label="ஸ்மார்ட் ஸ்வாப் தீர்வு"><span class="keyword-blue">தண்ணீர்</span> அல்லது <span class="keyword-blue">மூலிகைத் தேநீர் (Herbal Tea)</span> அருந்துவது. கைகள் பரபரப்பாக இருக்க ஒரு <span class="keyword-green">பச்சைக் காய்கறியை</span> மெல்லுவது (உதாரணமாக, கேரட்).</td>
                 </tr>
                 <tr>
-                    <td data-label="தூண்டுதல்">மாலை சோர்வு</td>
+                    <td data-label="தூண்டுதல் (Trigger)">மாலை சோர்வு</td>
                     <td data-label="ஆரோக்கியமற்ற வழக்கம்">காபி மற்றும் சர்க்கரை பிஸ்கட்</td>
                     <td data-label="ஸ்மார்ட் ஸ்வாப் தீர்வு"><span class="keyword-green">புரதம் நிறைந்த சிற்றுண்டியை (Protein-rich Snack)</span> (உதாரணமாக, ஒரு சிறிய கைப்பிடி பாதாம் அல்லது வேகவைத்த முட்டை) எடுத்துக்கொள்வது.</td>
                 </tr>
@@ -281,7 +292,7 @@
             பழைய சுழற்சி: மன அழுத்தம் --> சாக்லேட் சாப்பிடுவது $\rightarrow$ தற்காலிக மகிழ்ச்சி/நிவாரணம்.
         </p>
         <p>
-            புதிய சுழற்சி: மன அழுத்தம் --> <span class="keyword-blue">ஸ்மார்ட் ஸ்வாப்</span> (உதாரணமாக, நடப்பது) $\rightarrow$ தற்காலிக மகிழ்ச்சி/நிவாரணம் + <span class="keyword-green">ஆரோக்கிய உணர்வு</span>.
+            புதிய சுழற்சி: மன அழுத்தம் --> <span class="keyword-blue">ஸ்மார்ட் ஸ்வாப்</span> (உதாரணமாக, நடப்பது) --> தற்காலிக மகிழ்ச்சி/நிவாரணம் + <span class="keyword-green">ஆரோக்கிய உணர்வு</span>.
         </p>
         <p>
             இந்தச் சிறிய மாற்றங்கள், காலப்போக்கில் புதிய மற்றும் <span class="keyword-green">ஆரோக்கியமான பழக்கச் சுழற்சியை</span> உருவாக்குகின்றன. இதுவே <span class="keyword-green">"ஹேபிட்டோம்"</span> - நமது பழக்கவழக்கங்களின் அமைப்பு - மேம்பட அடிப்படையான அறிவியல் அணுகுமுறையாகும்.
