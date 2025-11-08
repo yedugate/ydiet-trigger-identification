@@ -168,21 +168,29 @@
             .swap-table tr {
                 margin-bottom: 15px;
                 border: 1px solid #adb5bd;
-                padding: 10px 0; /* Add vertical padding to the row */
+                padding: 10px 0; 
             }
 
             .swap-table td {
                 text-align: right;
-                padding-left: 55%; /* Space for the data label */
+                padding-left: 60%; /* Increased space for the label on the left */
                 position: relative;
-                border: none; /* Remove individual cell borders */
-                padding-top: 8px; /* Reduce vertical padding */
-                padding-bottom: 8px; /* Reduce vertical padding */
+                border: none; 
+                padding-top: 8px; 
+                padding-bottom: 8px; 
             }
             
-            /* Apply border to the last cell of the row to separate records */
+            /* Add a divider between cells within the stacked row */
+            .swap-table tr td:not(:last-child) {
+                border-bottom: 1px dashed #ced4da;
+            }
+
+            /* Apply a solid border to the last cell of the row to separate records (cards) */
             .swap-table tr td:last-child {
-                border-bottom: 1px solid #dee2e6;
+                border-bottom: none; /* Removed the line below the card */
+            }
+            .swap-table tr:last-child {
+                 margin-bottom: 0; /* No margin after the last row */
             }
 
             /* Create the column header label using data-label attribute */
@@ -190,16 +198,18 @@
                 content: attr(data-label);
                 position: absolute;
                 left: 10px;
-                width: 50%;
+                width: 55%; /* Adjusted label width */
                 padding-right: 10px;
-                white-space: normal; /* Allow text to wrap */
+                white-space: normal; /* Allow the content text to wrap */
                 text-align: left;
                 font-weight: bold;
                 color: #007bff;
             }
             
-            /* Setting up the column labels for mobile table (using data-label in HTML) */
-            /* No need to set the content here since it is already set in the HTML td element */
+            /* Ensure the text content wraps properly (important for the Smart Swap Solution) */
+            .swap-table tr td {
+                white-space: normal;
+            }
         }
     </style>
 </head>
@@ -292,7 +302,7 @@
             பழைய சுழற்சி: மன அழுத்தம் --> சாக்லேட் சாப்பிடுவது $\rightarrow$ தற்காலிக மகிழ்ச்சி/நிவாரணம்.
         </p>
         <p>
-            புதிய சுழற்சி: மன அழுத்தம் --> <span class="keyword-blue">ஸ்மார்ட் ஸ்வாப்</span> (உதாரணமாக, நடப்பது) --> தற்காலிக மகிழ்ச்சி/நிவாரணம் + <span class="keyword-green">ஆரோக்கிய உணர்வு</span>.
+            புதிய சுழற்சி: மன அழுத்தம் --> <span class="keyword-blue">ஸ்மார்ட் ஸ்வாப்</span> (உதாரணமாக, நடப்பது) $\rightarrow$ தற்காலிக மகிழ்ச்சி/நிவாரணம் + <span class="keyword-green">ஆரோக்கிய உணர்வு</span>.
         </p>
         <p>
             இந்தச் சிறிய மாற்றங்கள், காலப்போக்கில் புதிய மற்றும் <span class="keyword-green">ஆரோக்கியமான பழக்கச் சுழற்சியை</span> உருவாக்குகின்றன. இதுவே <span class="keyword-green">"ஹேபிட்டோம்"</span> - நமது பழக்கவழக்கங்களின் அமைப்பு - மேம்பட அடிப்படையான அறிவியல் அணுகுமுறையாகும்.
